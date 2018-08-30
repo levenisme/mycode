@@ -3,8 +3,8 @@ A
 C
 D
 B
-A
-D
-C
+B
+B
+B
 B
 A

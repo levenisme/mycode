@@ -6,5 +6,3 @@ a*i+b=13
 a*i+b=16
 a*i+b=19
 a is 4
-b is 5
-a*i+b=5

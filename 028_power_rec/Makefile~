@@ -1,0 +1,2 @@
+power: power.c 
+	gcc -o power -pedantic -std=gnu99 -Wall -Werror mian.c power.c

@@ -48,5 +48,9 @@ int main() {
   printf("sumSeq2(%d, %d) = %d\n", y1, y2, sumSeq2(y1, y2));
   printf("sumSeq2(%d, %d) = %d\n", y3, y4, sumSeq2(y3, y4));
   printf("sumSeq2(%d, %d) = %d\n", y5, y6, sumSeq2(y5, y6));
+  printf("sumSeq2(%d, %d) = %d\n", y1, y3, sumSeq2(y1, y3));
+  printf("sumSeq2(%d, %d) = %d\n", y2, y2, sumSeq2(y2, y2));
+  printf("sumSeq2(%d, %d) = %d\n", y1, y6, sumSeq2(y1, y6));
+
   return 0;
 }

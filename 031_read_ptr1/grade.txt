@@ -1,0 +1,8 @@
+Grading at 09/15/2018:18:53:45.125430
+For commit ID 4936308601f96c3fd717e729d8879f66b9d6e335
+Attempting to compile test.c
+The code did not compile
+Your file matched the expected output
+Your output matched what we expected
+
+Overall Grade: FAILED

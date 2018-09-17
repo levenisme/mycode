@@ -20,14 +20,14 @@ int main() {
   int array3[] = {-2, -2, -1, 0, 1, 2};
   int array4[] = {0, 0, 0, 0, 0};
   int array5[] = {4, 3, 2, 1, -5};
-  int array6[] = {};
+  // int array6[] = {};
   int array7[] = {1, -2, 3, -4, 0};
   run_check(array1, 5, 5);
   run_check(array2, 4, 1);
   run_check(array3, 6, 5);
   run_check(array4, 5, 1);
   run_check(array5, 5, 1);
-  run_check(array6, 0, 0);
+  // run_check(array6, 0, 0);
   run_check(array7, 5, 2);
   return EXIT_SUCCESS;
 }

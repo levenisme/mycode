@@ -1,0 +1,10 @@
+Grading at 09/17/2018:02:02:47.278734
+For commit ID de56b636adca35209b367e8400a8657bf830375e
+adding main
+[32mSuccessfully compiled ['maxSeq.c'].[0m
+********************test case 1********************
+array size 0
+Exit status of your code: 139
+[31mtest case 1 Error: Your program had segmentation fault[0m
+[31mCannot continue testing[0m
+Overall Grade: F

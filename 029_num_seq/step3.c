@@ -7,6 +7,7 @@
 //
 // Be sure to #include any header files you need!
 #include <stdio.h>
+#include <stdlib.h>
 int seq3(int x, int y) {
   int seq3;
   seq3 = -3 * x + y * (x + 2);
@@ -83,5 +84,5 @@ int main() {
          y4,
          y5,
          countEvenInSeq3Range(y2, y3, y4, y5));
-  return 0;
+  return EXIT_SUCCESS;
 }

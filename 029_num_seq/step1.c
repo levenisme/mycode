@@ -6,7 +6,9 @@
 //  Step 1 (D): add test cases to main to test printSeq1Range
 //
 // Be sure to #include any header files you need!
+
 #include <stdio.h>
+#include <stdlib.h>
 int seq1(int x) {
   int seq1;
   seq1 = 4 * x - 3;
@@ -55,5 +57,5 @@ int main() {
   printSeq1Range(y2, y4);
   printf("printSeq1Range(%d,%d)\n", y4, y5);
   printSeq1Range(y4, y5);
-  return 0;
+  return EXIT_SUCCESS;
 }

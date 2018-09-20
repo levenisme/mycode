@@ -7,7 +7,7 @@
 //
 // Be sure to #include any header files you need!
 #include <stdio.h>
-
+#include <stdlib.h>
 int seq2(int x) {
   int seq2;
   seq2 = x * x + 3 * x + 1;
@@ -52,5 +52,5 @@ int main() {
   printf("sumSeq2(%d, %d) = %d\n", y2, y2, sumSeq2(y2, y2));
   printf("sumSeq2(%d, %d) = %d\n", y1, y6, sumSeq2(y1, y6));
 
-  return 0;
+  return EXIT_SUCCESS;
 }

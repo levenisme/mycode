@@ -1,6 +1,6 @@
-17 use of uninitialized pointer
-18 use of uninitialized pointer
-17 use of dangling pointer
-18 use of dangling pointer
-21 return dangling pointer
-26 use dangling pointer
+19 use of uninitialized pointer
+20 use of uninitialized pointer
+19 use of dangling pointer
+20 use of dangling pointer
+23 return dangling pointer
+28 use dangling pointer

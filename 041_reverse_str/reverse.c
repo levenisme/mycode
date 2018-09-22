@@ -3,8 +3,8 @@
 #include <string.h>
 
 void reverse(char * str) {
-  size_t L = strlen(str);
-  if (L != 0) {
+  if (str != NULL) {
+    size_t L = strlen(str);
     char ptr[L + 1];
     strcpy(ptr, str);
     for (size_t i = 0; i < L; i++) {

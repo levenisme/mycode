@@ -1,9 +1,25 @@
-Grading at 09/25/2018:05:16:26.883170
-For commit ID bce486382a4b53be7ac016b5447c342a630add71
+Grading at 09/25/2018:05:18:59.661335
+For commit ID 9179d979a5d8b4a158efa5880a80f090a9aa207c
 running passed-in stu_imp ./breaker
 [33mWarning: fail to run make clean[0m
-make: *** No targets specified and no makefile found.  Stop.
-
-[31mError: fail to run makefile[0m
-[31mCannot continue testing[0m
+[32mSuccessfully compiled .[0m
+********************test case 1********************
+Exit status of your code: 1
+[32mValgrind was clean[0m
+Your output has 0 lines, but we expected 1 lines.
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 1[0m
+********************test case 2********************
+Exit status of your code: 1
+[32mValgrind was clean[0m
+Your output has 0 lines, but we expected 1 lines.
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 2[0m
+********************test case 3********************
+Exit status of your code: 1
+[32mValgrind was clean[0m
+Your output has 0 lines, but we expected 1 lines.
+[31mIncorrect: your output did not match the expected output.[0m
+[31mfailed test case 3[0m
+[31mfailed 3 out of 3 test cases[0m
 Overall Grade: F

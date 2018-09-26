@@ -1,5 +1,5 @@
-Grading at 09/26/2018:04:13:55.923589
-For commit ID cd4e16104f043f8a3e916cde6d9e45ecd2898ddf
+Grading at 09/26/2018:05:22:46.045172
+For commit ID abfcad488b281c94053b5e0d446caf59c07f50bb
 [32mSuccessfully compiled ['rotateMatrix.c'].[0m
 ********************test case 1********************
 Exit status of your code: 1
@@ -22,7 +22,14 @@ Exit status of your code: 1
 [32mCorrect: your code indicates this is a failure case.[0m
 [32mpassed test case 4[0m
 ********************test case 5********************
-Exit status of your code: 139
-[31mtest case 5 Error: Your program had segmentation fault[0m
-[31mCannot continue testing[0m
-Overall Grade: F
+Exit status of your code: 1
+[32mValgrind was clean[0m
+[32mCorrect: your code indicates this is a failure case.[0m
+[32mpassed test case 5[0m
+********************test case 6********************
+Exit status of your code: 0
+[32mValgrind was clean[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 6[0m
+[32msuccessfully passed all 6 test cases[0m
+Overall Grade: A

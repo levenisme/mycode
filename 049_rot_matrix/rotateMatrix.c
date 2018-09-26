@@ -18,7 +18,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   char array[10][10];
-  char c;
+  int c;
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
     perror("could not open file");
@@ -28,6 +28,14 @@ int main(int argc, char ** argv) {
   column = row = 0;
 
   while ((c = fgetc(f)) != EOF) {
+    if (column > 10) {
+      perror("column > 10.  Error!!!\n");
+      return EXIT_FAILURE;
+    }
+    if (row > 10) {
+      perror("column > 10.  Error!!!\n");
+      return EXIT_FAILURE;
+    }
     if (c != '\n') {
       array[row][column] = c;
       column++;

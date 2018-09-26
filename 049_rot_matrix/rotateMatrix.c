@@ -37,6 +37,10 @@ int main(int argc, char ** argv) {
       return EXIT_FAILURE;
     }
     if (c != '\n') {
+      if (column > 9) {
+        perror("column > 9.  Error!!!\n");
+        return EXIT_FAILURE;
+      }
       array[row][column] = c;
       column++;
     }

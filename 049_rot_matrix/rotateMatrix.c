@@ -33,7 +33,7 @@ int main(int argc, char ** argv) {
     }
     else {
       if (column != 10) {
-        printf(" array[row][column]=c; Error!!!\n");
+        perror(" array[row][column]=c; Error!!!\n");
         return EXIT_FAILURE;
       }
       else {
@@ -43,7 +43,7 @@ int main(int argc, char ** argv) {
     }
   }
   if (row != 10) {
-    printf("row != 9 :Error!!!\n");
+    perror("row != 10 :Error!!!\n");
     return EXIT_FAILURE;
   }
 

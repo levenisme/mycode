@@ -1,5 +1,5 @@
-Grading at 09/26/2018:03:36:39.140669
-For commit ID 8ccc241a33a8f4e3e8dfc006c8a088ff8cf3960a
+Grading at 09/26/2018:03:40:19.305476
+For commit ID bd4230cef7a9a7380479e8ed42237a05ea48406e
 [32mSuccessfully compiled ['rotateMatrix.c'].[0m
 ********************test case 1********************
 Exit status of your code: 1
@@ -10,8 +10,7 @@ Exit status of your code: 1
 Exit status of your code: 1
 [32mValgrind was clean[0m
 [32mCorrect: your code indicates this is a failure case.[0m
-[31mtest case 2 Incorrect: your stderr is empty[0m
-[31mfailed test case 2[0m
+[32mpassed test case 2[0m
 ********************test case 3********************
 Exit status of your code: 1
 [32mValgrind was clean[0m
@@ -21,8 +20,7 @@ Exit status of your code: 1
 Exit status of your code: 1
 [32mValgrind was clean[0m
 [32mCorrect: your code indicates this is a failure case.[0m
-[31mtest case 4 Incorrect: your stderr is empty[0m
-[31mfailed test case 4[0m
+[32mpassed test case 4[0m
 ********************test case 5********************
 Exit status of your code: 134
 [31mtest case 5 Error: double free or corruption[0m

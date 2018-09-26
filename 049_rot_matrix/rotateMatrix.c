@@ -13,7 +13,7 @@ void rotate(char array[][10]) {
       array[i][j] = oldArray[9 - j][i];
 }
 int main(int argc, char ** argv) {
-  if (argc != 2) {
+  if (argc != 2 || argv[0] == NULL || argv[1] == NULL || *argv[1] == '\0') {
     fprintf(stderr, "only have one argv");
     return EXIT_FAILURE;
   }
@@ -26,6 +26,7 @@ int main(int argc, char ** argv) {
   }
   int column, row;
   column = row = 0;
+
   while ((c = fgetc(f)) != EOF) {
     if (c != '\n') {
       array[row][column] = c;
@@ -48,6 +49,7 @@ int main(int argc, char ** argv) {
   }
 
   rotate(array);
+
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
       printf("%c", array[i][j]);

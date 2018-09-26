@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-void rotate(char array[][10]) {
-  char oldArray[10][10];
+void rotate(char array[][11]) {
+  char oldArray[10][11];
   for (int i = 0; i < 10; i++)
     for (int j = 0; j < 10; j++) {
       oldArray[i][j] = array[i][j];
@@ -18,7 +18,7 @@ int main(int argc, char ** argv) {
     fprintf(stderr, "only have one argv");
     return EXIT_FAILURE;
   }
-  char array[10][10];
+  char array[10][11];
   int c;
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
@@ -27,8 +27,7 @@ int main(int argc, char ** argv) {
   }
   int column, row;
   column = row = 0;
-
-  while ((c = fgetc(f)) != EOF) {
+  while ((c = fgetc(f)) != EOF && c < 255) {
     if (column > 10) {
       perror("column > 10.  Error!!!\n");
       return EXIT_FAILURE;
@@ -42,13 +41,13 @@ int main(int argc, char ** argv) {
         perror("column > 9.  Error!!!\n");
         return EXIT_FAILURE;
       }
-      //array[row][column] = c;
-      array[column][9 - row] = c;
+      array[row][column] = c;
+
       column++;
     }
     else {
       if (column != 10) {
-        perror(" array[row][column]=c; Error!!!\n");
+        perror(" column!=10: Error!!!\n");
         return EXIT_FAILURE;
       }
       else {
@@ -61,8 +60,7 @@ int main(int argc, char ** argv) {
     perror("row != 10 :Error!!!\n");
     return EXIT_FAILURE;
   }
-
-  //  rotate(array);
+  rotate(array);
 
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {

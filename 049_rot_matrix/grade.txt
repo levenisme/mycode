@@ -1,5 +1,5 @@
-Grading at 09/26/2018:04:03:05.809473
-For commit ID 203c1239e6118b0ac364436827cfd70756d37b68
+Grading at 09/26/2018:04:13:55.923589
+For commit ID cd4e16104f043f8a3e916cde6d9e45ecd2898ddf
 [32mSuccessfully compiled ['rotateMatrix.c'].[0m
 ********************test case 1********************
 Exit status of your code: 1
@@ -22,7 +22,7 @@ Exit status of your code: 1
 [32mCorrect: your code indicates this is a failure case.[0m
 [32mpassed test case 4[0m
 ********************test case 5********************
-Exit status of your code: 134
-[31mtest case 5 Error: double free or corruption[0m
+Exit status of your code: 139
+[31mtest case 5 Error: Your program had segmentation fault[0m
 [31mCannot continue testing[0m
 Overall Grade: F

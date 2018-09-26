@@ -12,6 +12,7 @@ void rotate(char array[][10]) {
     for (int j = 0; j < 10; j++)
       array[i][j] = oldArray[9 - j][i];
 }
+
 int main(int argc, char ** argv) {
   if (argc != 2 || argv[0] == NULL || argv[1] == NULL || *argv[1] == '\0') {
     fprintf(stderr, "only have one argv");
@@ -41,7 +42,8 @@ int main(int argc, char ** argv) {
         perror("column > 9.  Error!!!\n");
         return EXIT_FAILURE;
       }
-      array[row][column] = c;
+      //array[row][column] = c;
+      array[column][9 - row] = c;
       column++;
     }
     else {
@@ -60,7 +62,7 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
 
-  rotate(array);
+  //  rotate(array);
 
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {

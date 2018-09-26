@@ -1,2 +1,0 @@
-rotateMatrix:rotateMatrix.c
-	gcc -o rotateMatrix -pedantic -gnu=99 -Werror -Wall rotateMatrix.c

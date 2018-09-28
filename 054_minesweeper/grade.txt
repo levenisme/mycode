@@ -1,5 +1,5 @@
-Grading at 09/28/2018:22:55:49.502355
-For commit ID 1291b3cfee8b5de2d1da9fd3d62ddad337950342
+Grading at 09/28/2018:23:01:32.437438
+For commit ID 562fcb9a345dae5ae728fce4e11c39dd7003c08f
 [32mSuccessfully compiled ['minesweeper.c'].[0m
 ********************test case 1********************
 Exit status of your code: 0

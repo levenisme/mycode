@@ -116,21 +116,21 @@ void printBoard(board_t * b) {
 }
 int countMines(board_t * b, int x, int y) {
   int count = 0;
-  if (x >= 1 && y >= 1 && IS_MINE(b->board[x - 1][y - 1]) == 1)
+  if (x >= 1 && y >= 1 && IS_MINE(b->board[y - 1][x - 1]) == 1)
     count++;
-  if (y >= 1 && IS_MINE(b->board[x][y - 1]) == 1)
+  if (y >= 1 && IS_MINE(b->board[y - 1][x]) == 1)
     count++;
-  if (x != b->width - 1 && y >= 1 && IS_MINE(b->board[x + 1][y - 1]) == 1)
+  if (x != b->width - 1 && y >= 1 && IS_MINE(b->board[y - 1][x + 1]) == 1)
     count++;
-  if (x >= 1 && IS_MINE(b->board[x - 1][y]) == 1)
+  if (x >= 1 && IS_MINE(b->board[y][x - 1]) == 1)
     count++;
-  if (x != b->width - 1 && y >= 1 && IS_MINE(b->board[x + 1][y]) == 1)
+  if (x != b->width - 1 && y >= 1 && IS_MINE(b->board[y - 1][x + 1]) == 1)
     count++;
-  if (x >= 1 && y != b->height - 1 && IS_MINE(b->board[x - 1][y + 1]) == 1)
+  if (x >= 1 && y != b->height - 1 && IS_MINE(b->board[y + 1][x - 1]) == 1)
     count++;
-  if (y > 1 && y != b->height - 1 && IS_MINE(b->board[x][y + 1]) == 1)
+  if (y != b->height - 1 && IS_MINE(b->board[y + 1][x]) == 1)
     count++;
-  if (x != b->width - 1 && y != b->height - 1 && IS_MINE(b->board[x + 1][y + 1]) == 1)
+  if (x != b->width - 1 && y != b->height - 1 && IS_MINE(b->board[y + 1][x + 1]) == 1)
     count++;
 
   //WRITE ME!

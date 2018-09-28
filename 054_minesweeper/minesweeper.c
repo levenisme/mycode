@@ -116,7 +116,7 @@ void printBoard(board_t * b) {
 }
 int countMines(board_t * b, int x, int y) {
   int count = 0;
-  if (x < 0 || y < 0 || x >= b->width || y >= b->height) {
+  if (x < 0 || y < 0 || x > b->width || y > b->height) {
     perror("invalid input");
   }
 

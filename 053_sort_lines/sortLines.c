@@ -69,6 +69,10 @@ int main(int argc, char ** argv) {
   else {
     for (int i = 1; i < argc; i++) {
       FILE * f = fopen(argv[i], "r");
+      if (f == NULL) {
+        perror("could not open file");
+        return EXIT_FAILURE;
+      }
       sort2(f);
       if (fclose(f) != 0) {
         perror("Failed to close the input file!");

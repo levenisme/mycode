@@ -116,7 +116,7 @@ void printBoard(board_t * b) {
 }
 int countMines(board_t * b, int x, int y) {
   int count = 0;
-  if (x < 0 || y < 0 || x > b->width - 1 || y > b->height - 1) {
+  if (x < 0 || y < 0 || x > b->width || y > b->height) {
     perror("invalid input");
   }
 
@@ -130,7 +130,7 @@ int countMines(board_t * b, int x, int y) {
     if ((IS_MINE(b->board[x][y - 1]) == 1)) {
       count++;
     }
-    if ((IS_MINE(b->board[x + 1][y - 1]) == 1)) {
+    if (x != b->width - 1 && (IS_MINE(b->board[x + 1][y - 1]) == 1)) {
       count++;
     }
   }
@@ -139,19 +139,19 @@ int countMines(board_t * b, int x, int y) {
     if ((IS_MINE(b->board[x - 1][y]) == 1)) {
       count++;
     }
-    if ((IS_MINE(b->board[x - 1][y + 1]) == 1)) {
+    if (y != b->height - 1 && (IS_MINE(b->board[x - 1][y + 1]) == 1)) {
       count++;
     }
   }
 
-  if ((IS_MINE(b->board[x + 1][y]) == 1)) {
+  if (x != b->width - 1 && (IS_MINE(b->board[x + 1][y]) == 1)) {
     count++;
   }
 
-  if ((IS_MINE(b->board[x][y + 1]) == 1)) {
+  if (y != b->height - 1 && (IS_MINE(b->board[x][y + 1]) == 1)) {
     count++;
   }
-  if ((IS_MINE(b->board[x + 1][y + 1]) == 1)) {
+  if (x != b->width - 1 && y != b->height - 1 && (IS_MINE(b->board[x + 1][y + 1]) == 1)) {
     count++;
   }
 

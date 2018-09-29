@@ -125,7 +125,7 @@ int countMines(board_t * b, int x, int y) {
   if (x != 0 && IS_MINE(b->board[y][x - 1]) == 1) {
     count++;
   }
-  if (x != (b->width) - 1 && y != 0 && IS_MINE(b->board[y - 1][x + 1]) == 1) {
+  if (x != (b->width) - 1 && IS_MINE(b->board[y][x + 1]) == 1) {
     count++;
   }
   if (x != 0 && y != (b->height) - 1 && IS_MINE(b->board[y + 1][x - 1]) == 1) {
@@ -137,6 +137,7 @@ int countMines(board_t * b, int x, int y) {
   if (x != (b->width) - 1 && y != (b->height) - 1 && IS_MINE(b->board[y + 1][x + 1]) == 1) {
     count++;
   }
+
   //WRITE ME!
   return count;
 }

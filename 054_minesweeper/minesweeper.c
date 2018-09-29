@@ -40,9 +40,6 @@ void addRandomMine(board_t * b) {
 }
 
 board_t * makeBoard(int w, int h, int numMines) {
-  if (w < 1 || h < 1 || numMines < w * h) {
-    perror("error!!! invalid input");
-  }
   board_t * b;
   b = malloc(sizeof(*b));
   b->height = h;
@@ -122,22 +119,22 @@ int countMines(board_t * b, int x, int y) {
   if (y != 0 && IS_MINE(b->board[y - 1][x]) == 1) {
     count++;
   }
-  if (x != b->width - 1 && y != 0 && IS_MINE(b->board[y - 1][x + 1]) == 1) {
+  if (x != (b->width) - 1 && y != 0 && IS_MINE(b->board[y - 1][x + 1]) == 1) {
     count++;
   }
   if (x != 0 && IS_MINE(b->board[y][x - 1]) == 1) {
     count++;
   }
-  if (x != b->width - 1 && y != 0 && IS_MINE(b->board[y - 1][x + 1]) == 1) {
+  if (x != (b->width) - 1 && y != 0 && IS_MINE(b->board[y - 1][x + 1]) == 1) {
     count++;
   }
-  if (x != 0 && y != b->height - 1 && IS_MINE(b->board[y + 1][x - 1]) == 1) {
+  if (x != 0 && y != (b->height) - 1 && IS_MINE(b->board[y + 1][x - 1]) == 1) {
     count++;
   }
-  if (y != b->height - 1 && IS_MINE(b->board[y + 1][x]) == 1) {
+  if (y != (b->height) - 1 && IS_MINE(b->board[y + 1][x]) == 1) {
     count++;
   }
-  if (x != b->width - 1 && y != b->height - 1 && IS_MINE(b->board[y + 1][x + 1]) == 1) {
+  if (x != (b->width) - 1 && y != (b->height) - 1 && IS_MINE(b->board[y + 1][x + 1]) == 1) {
     count++;
   }
   //WRITE ME!

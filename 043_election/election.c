@@ -12,34 +12,38 @@ state_t parseLine(const char * line) {
 
   const char * temp = line;
   state_t state;
-  int i = 0;
-  state.name[0] = temp[0];
-  for (i = 1; temp[i] != ':'; i++) {
-    state.name[i] = temp[i];
-  }  //put the name of the state into name[]
-  /*  if (temp[i] != ':') {
-    perror("you should use 1: to seperate");
-    EXIT_FAILURE;
-    }*/
+  int i;
 
+  for (i = 0; /*temp[i] != ':'*/ isalpha(temp[i]) != 0 || temp[i] == ' '; i++) {
+    state.name[i] = temp[i];
+    if (isalpha(temp[i]) == 0 && temp[i] != ':' && temp[i] != ' ') {
+      perror("invalid name");
+      exit(EXIT_FAILURE);
+    }
+  }  //put the name of the state into name[]
+  if (temp[i] != ':' || i > 64) {
+    perror("you should use 1: to seperate or you have long name");
+    EXIT_FAILURE;
+  }
   state.name[i] = '\0';
-  char pop[64];  //read population in char format
+  char pop[64] = {0};  //read population in char format
   i++;
-  for (int j = 0; temp[i] != ':'; j++, i++) {
+  for (int j = 0; /* temp[i] != ':'*/ temp[i] >= '0' && temp[i] <= '9'; j++, i++) {
     pop[j] = temp[i];
   }
-  /* if (temp[i] != ':') {
+  if (temp[i] != ':') {
     perror("you should use 2: to seperate");
     EXIT_FAILURE;
-    }*/
+  }
 
   state.population = atoi(pop);
 
-  char elec[64];
+  char elec[64] = {0};
   i++;
   for (int j = 0; temp[i] != '\0'; j++, i++) {
     elec[j] = temp[i];
   }
+  //  printf("State is ==>%s,  Population is ==> %lu\n ", state.name, state.population);
   state.electoralVotes = atoi(elec);
   return state;
 
@@ -47,11 +51,11 @@ state_t parseLine(const char * line) {
 }
 
 unsigned int countElectoralVotes(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
-  double percent;
-  uint64_t total = 0;
+  int total = 0;
   for (size_t i = 0; i < nStates; i++) {
-    if ((percent = (double)voteCounts[i] / (double)stateData[i].population) > 0.5) {
-      total = total + stateData[i].electoralVotes;
+    if (voteCounts[i] > (stateData[i].population / 2)) {
+      //     printf("statename=%s", stateData[i].name);
+      total += stateData[i].electoralVotes;
     }
   }
   //STEP 2: write me
@@ -59,9 +63,32 @@ unsigned int countElectoralVotes(state_t * stateData, uint64_t * voteCounts, siz
 }
 
 void printRecounts(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
+  double percent;
+
+  for (size_t i = 0; i < nStates; i++) {
+    if ((0.506 > (percent = ((double)voteCounts[i] / (double)stateData[i].population)) &&
+         ((double)voteCounts[i] / (double)stateData[i].population) > 0.494)) {
+      printf("%s requires a recount (Candidate A has %.2f%% of the vote)\n",
+             stateData[i].name,
+             (double)voteCounts[i] / (double)stateData[i].population * 100);
+    }
+  }
   //STEP 3: write me
 }
 
 void printLargestWin(state_t * stateData, uint64_t * voteCounts, size_t nStates) {
+  double max = 0;
+  int j = 0;
+  double percent = 0;
+  for (size_t i = 0; i < nStates; i++) {
+    percent = ((double)voteCounts[i] / (double)stateData[i].population);
+    if (max < percent) {
+      max = percent;
+      j = i;
+      //      printf("Candidate A won %s with %.2f%% of the vote\n", stateData[j].name, percent * 100);
+    }
+  }
+  printf("Candidate A won %s with %.2f%% of the vote\n", stateData[j].name, max * 100);
+
   //STEP 4: write me
 }

@@ -13,7 +13,10 @@ state_t parseLine(const char * line) {
   const char * temp = line;
   state_t state;
   int i;
-
+  if (temp[64] <= 'z' && temp[64] >= 'a') {
+    perror("name is too long");
+    exit(EXIT_FAILURE);
+  }
   for (i = 0; /*temp[i] != ':'*/ isalpha(temp[i]) != 0 || temp[i] == ' '; i++) {
     state.name[i] = temp[i];
     if (isalpha(temp[i]) == 0 && temp[i] != ':' && temp[i] != ' ') {
@@ -21,9 +24,9 @@ state_t parseLine(const char * line) {
       exit(EXIT_FAILURE);
     }
   }  //put the name of the state into name[]
-  if (temp[i] != ':' || i > 64) {
-    perror("you should use 1: to seperate or you have long name");
-    EXIT_FAILURE;
+  if (temp[i] != ':') {
+    perror("you should use 1: ");
+    exit(EXIT_FAILURE);
   }
   state.name[i] = '\0';
   char pop[64] = {0};  //read population in char format
@@ -33,13 +36,17 @@ state_t parseLine(const char * line) {
   }
   if (temp[i] != ':') {
     perror("you should use 2: to seperate");
-    EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
 
   state.population = atoi(pop);
 
   char elec[64] = {0};
   i++;
+  if (!(temp[i] >= '0' && temp[i] <= '9')) {
+    perror("you should have electoralvotes");
+    exit(EXIT_FAILURE);
+  }
   for (int j = 0; temp[i] != '\0'; j++, i++) {
     elec[j] = temp[i];
   }

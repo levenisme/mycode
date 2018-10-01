@@ -47,8 +47,12 @@ state_t parseLine(const char * line) {
     perror("you should have electoralvotes");
     exit(EXIT_FAILURE);
   }
-  for (int j = 0; temp[i] != '\0'; j++, i++) {
+  for (int j = 0; temp[i] >= '0' && temp[i] <= '9'; j++, i++) {
     elec[j] = temp[i];
+  }
+  if (temp[++i] != '\0') {
+    perror("you should have right format");
+    exit(EXIT_FAILURE);
   }
   //  printf("State is ==>%s,  Population is ==> %lu\n ", state.name, state.population);
   state.electoralVotes = atoi(elec);

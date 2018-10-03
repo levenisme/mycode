@@ -1,0 +1,22 @@
+Grading at 10/03/2018:19:50:28.992787
+For commit ID c85b78bb1accc4456ba277a2e7c9034e95ca593e
+********************test case 1********************
+Exit status of your code: 0
+[31mtest case 1 Error: valgrind was not clean,here are error suggestions:[0m
+[31m1 Conditional jump or move depends on uninitialised value(s)[0m
+[31m2 Use of uninitialised value of size 8[0m
+[31mfailed test case 1[0m
+********************test case 2********************
+Exit status of your code: 0
+[31mtest case 2 Error: valgrind was not clean,here are error suggestions:[0m
+[31m1 Conditional jump or move depends on uninitialised value(s)[0m
+[31m2 Use of uninitialised value of size 8[0m
+[31mfailed test case 2[0m
+********************test case 3********************
+Exit status of your code: 0
+[31mtest case 3 Error: valgrind was not clean,here are error suggestions:[0m
+[31m1 Conditional jump or move depends on uninitialised value(s)[0m
+[31m2 Use of uninitialised value of size 8[0m
+[31mfailed test case 3[0m
+[31mfailed 3 out of 3 test cases[0m
+Overall Grade: F

@@ -28,6 +28,7 @@ void addCount(counts_t * c, const char * name) {
       c->array = realloc(c->array, c->length * sizeof(*c->array));
       one_count_t * newone = malloc(sizeof(*newone));
       c->array[c->length - 1] = newone;
+      c->array[c->length - 1]->count = 0;
       c->array[c->length - 1]->str = name;
       c->array[c->length - 1]->count++;
     }

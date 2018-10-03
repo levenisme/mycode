@@ -15,10 +15,13 @@ kvpair_t * findPair(FILE * f) {
     char * pend = strchr(p, '\n');
     pr->key = strndup(p, pequal - p);
     pr->value = strndup(pequal + 1, pend - pequal - 1);
+    //free getline
     free(p);
     p = NULL;
     return pr;
   }
+  free(p);
+  free(pr);
   return NULL;
 }
 
@@ -43,6 +46,7 @@ kvarray_t * readKVs(const char * fname) {
     }
     ans->array[i++] = pr;
   }
+
   int resultC = fclose(kv);
   if (resultC != 0) {
     perror("failed to close the input file!");

@@ -2,11 +2,15 @@
 #define __COUNTS_H__
 #include <stdio.h>
 struct _one_count_t {
-  //DEFINE ME
+  const char * str;
+  int count;  //DEFINE ME
 };
 typedef struct _one_count_t one_count_t;
 
 struct _counts_t {
+  one_count_t ** array;
+  int length;
+  int u_count;
   //DEFINE ME
 };
 typedef struct _counts_t counts_t;

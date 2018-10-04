@@ -16,11 +16,11 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   size_t n = 0;
   counts_t * count = createCounts();
   while (getline(&line_p, &n, f) != EOF) {
-    //    size_t length = strlen(line_p);  //\n
-    line_p[n - 1] = '\0';
+    size_t length = strlen(line_p);  //\n
+    line_p[length - 1] = '\0';
     char * val = lookupValue(kvPairs, line_p);
     addCount(count, val);
-    n = 0;
+    //    n = 0;
   }
   //WRITE ME
   free(line_p);

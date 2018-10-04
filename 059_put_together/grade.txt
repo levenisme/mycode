@@ -1,5 +1,5 @@
-Grading at 10/04/2018:01:38:55.820704
-For commit ID 410bd994bb59fd41790382eba438dc69a171b98c
+Grading at 10/04/2018:01:43:40.447749
+For commit ID a488be2ec5faf91cc3eed275b92287ef987ae44b
 running passed-in stu_imp ./count_values
 [32mSuccessfully compiled .[0m
 ********************test case 1********************
@@ -15,13 +15,12 @@ Exit status of your code: 0
 ********************test case 3********************
 Exit status of your code: 0
 [32mValgrind was clean[0m
-Your output has 6 lines, but we expected 5 lines.
-[31mtest case 3 Incorrect: Your output does not match the expected output.[0m
-[31mfailed test case 3[0m
+[32mCorrect: your output matched the expected output.[0m
+[32mpassed test case 3[0m
 ********************test case 4********************
 Exit status of your code: 0
 [32mValgrind was clean[0m
 [32mCorrect: your output matched the expected output.[0m
 [32mpassed test case 4[0m
-[31mfailed 1 out of 4 test cases[0m
-Overall Grade: C
+[32msuccessfully passed all 4 test cases[0m
+Overall Grade: A

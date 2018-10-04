@@ -1,5 +1,5 @@
-Grading at 10/04/2018:01:43:40.447749
-For commit ID a488be2ec5faf91cc3eed275b92287ef987ae44b
+Grading at 10/04/2018:19:40:54.210928
+For commit ID 21a42b35b9d6aad345afb6e38e3837cbb56e40d1
 running passed-in stu_imp ./count_values
 [32mSuccessfully compiled .[0m
 ********************test case 1********************
@@ -9,18 +9,16 @@ Exit status of your code: 1
 [32mpassed test case 1[0m
 ********************test case 2********************
 Exit status of your code: 0
-[32mValgrind was clean[0m
-[32mCorrect: your output matched the expected output.[0m
-[32mpassed test case 2[0m
+[31mtest case 2 Error: valgrind was not clean,here are error suggestions:[0m
+[31mfailed test case 2[0m
 ********************test case 3********************
 Exit status of your code: 0
-[32mValgrind was clean[0m
-[32mCorrect: your output matched the expected output.[0m
-[32mpassed test case 3[0m
+[31mtest case 3 Error: valgrind was not clean,here are error suggestions:[0m
+[31mfailed test case 3[0m
 ********************test case 4********************
 Exit status of your code: 0
-[32mValgrind was clean[0m
-[32mCorrect: your output matched the expected output.[0m
-[32mpassed test case 4[0m
-[32msuccessfully passed all 4 test cases[0m
-Overall Grade: A
+[31mtest case 4 Error: valgrind was not clean,here are error suggestions:[0m
+[31m1 Memory leak error: detected direct lost[0m
+[31mfailed test case 4[0m
+[31mfailed 3 out of 4 test cases[0m
+Overall Grade: F

@@ -1,0 +1,16 @@
+#ifndef __CIRCLE_H__
+#define __CIRCLE_H__
+#include "point.h"
+class Circle
+{
+ private:
+  Point ctr;
+  const double r;
+
+ public:
+  Circle();
+  Circle(Point p, const double rin);
+  void move(double dx, double dy);
+  double intersectionArea(const Circle & otherCircle);
+};
+#endif

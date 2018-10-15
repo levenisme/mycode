@@ -20,7 +20,7 @@ double Circle::intersectionArea(const Circle & otherCircle) {
   double d2 = d - d1;
   if (this != &otherCircle) {
     if (d < abs(r - r2))
-      return std::min(pow(r, 2), pow(r, 2)) * atan(1) * 4;  // *pi
+      return std::min(pow(r, 2), pow(r2, 2)) * atan(1) * 4;
     else {
       double intersect = pow(r, 2) * acos(d1 / r) - d1 * sqrt(pow(r, 2) - pow(d1, 2)) +
                          pow(r2, 2) * acos(d2 / r2) - d2 * sqrt(pow(r2, 2) - pow(d2, 2));

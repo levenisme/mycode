@@ -1,5 +1,5 @@
-Grading at 10/21/2018:18:44:13.582164
-For commit ID 22062117ab4d1a8a190019af9fd19820afc7bf98
+Grading at 10/21/2018:20:49:07.633191
+For commit ID 71ab8a4e7bb2a0565cbd0f58209221718c471acf
 Looking for malloc in your files
 No uses found (good).
 Looking for free in your files
@@ -17,15 +17,22 @@ make: 'sortLines' is up to date.
 Using sortLines..
 #################################################
 testcase1:
-testcase1 failed, your program didn't indicate this is a failure case
+testcase1 passed, your program successfully indicated a failure
+valgrind was clean
 #################################################
 testcase2:
-Your output is incorrect
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase3:
-Your output is incorrect
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase4:
-Your output is incorrect
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: F
+Overall Grade: A

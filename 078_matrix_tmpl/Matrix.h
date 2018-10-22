@@ -20,7 +20,7 @@ class Matrix
   Matrix(int r, int c) : numRows(r), numColumns(c) {
     rows.resize(r);  //
     for (int i = 0; i < numRows; i++) {
-      rows[i].resize(numColumns);  //
+      rows[i].resize(c);  //
     }
   }
   Matrix(const Matrix & rhs) : numRows(rhs.numRows), numColumns(rhs.numColumns) {
@@ -28,6 +28,7 @@ class Matrix
     for (int i = 0; i < numRows; i++) {
       {
         rows[i].resize(numColumns);
+        rows[i] = rhs.rows[i];
       }
     }
   }

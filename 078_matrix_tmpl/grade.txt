@@ -1,53 +1,26 @@
-Grading at 10/22/2018:02:33:49.276261
-For commit ID 0f9989ada48879f27892ae666326f93057b8d883
+Grading at 10/22/2018:02:51:56.137244
+For commit ID 282dbb5fe2ab29b5d1f4cf5d63cbd8c86997e054
 -----------------------------------------------
 testcase 1 : Testing with Matrix<int>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_11_did_not_match
-Line_12_did_not_match
-Line_13_did_not_match
-Line_14_did_not_match
-Line_15_did_not_match
-Line_26_did_not_match
-Line_27_did_not_match
-Line_28_did_not_match
-Line_29_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with Matrix<std::string>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_11_did_not_match
-Line_12_did_not_match
-Line_13_did_not_match
-Line_14_did_not_match
-Line_15_did_not_match
-Line_26_did_not_match
-Line_27_did_not_match
-Line_28_did_not_match
-Line_29_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with Matrix<(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_11_did_not_match
-Line_12_did_not_match
-Line_13_did_not_match
-Line_14_did_not_match
-Line_15_did_not_match
-Line_26_did_not_match
-Line_27_did_not_match
-Line_28_did_not_match
-Line_29_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 --------------------------------------------
 Preparing to test assert fails...
 Compiling assertion failure tester...
@@ -72,4 +45,4 @@ testcase 7 :  operator+: different number of columns
 Your file matched the expected output
 Testcase passed
 
-Overall Grade: F
+Overall Grade: C

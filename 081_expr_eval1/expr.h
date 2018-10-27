@@ -5,7 +5,7 @@ class Expression
 {
  public:
   virtual std::string toString() const = 0;
-  virtual ~Expression(){};
+  virtual ~Expression() {}
 };
 
 class NumExpression : public Expression
@@ -14,7 +14,7 @@ class NumExpression : public Expression
   long num;  //if input is a single number
 
  public:
-  NumExpression() { num = 0; }
+  NumExpression() {}
   NumExpression(long a) : num(a) {}
 
   virtual std::string toString() const {
@@ -24,22 +24,30 @@ class NumExpression : public Expression
     in.clear();
     return out;
   }
-  virtual ~NumExpression() {}  //why virtual
+  virtual ~NumExpression() {}  //virtual
 };
 class PlusExpression : public NumExpression
 {
  private:
   std::string plsexp;
+  Expression * lhsplus;
+  Expression * rhsplus;
 
  public:
   //evaluating its right hand side, and then adding the two results together
   //  to get its answer
 
   PlusExpression(Expression * lhs, Expression * rhs) {
+    lhsplus = lhs;
+    rhsplus = rhs;
     char op = '+';
     std::stringstream instant;
-    instant << '(' + lhs->toString() + ' ' + op + ' ' + rhs->toString() + ')';
+    instant << '(' + lhsplus->toString() + ' ' + op + ' ' + rhsplus->toString() + ')';
     plsexp = instant.str();
   }
   virtual std::string toString() const { return plsexp; }
+  virtual ~PlusExpression() {
+    delete lhsplus;
+    delete rhsplus;
+  }
 };

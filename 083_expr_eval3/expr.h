@@ -76,7 +76,7 @@ class MinusExpression : public NumExpression
   }
 
   virtual std::string toString() const { return plsexp; }
-  virtual long evaluate() const { return lhsmi->evaluate() + rhsmi->evaluate(); }
+  virtual long evaluate() const { return lhsmi->evaluate() - rhsmi->evaluate(); }
   virtual ~MinusExpression() {
     delete lhsmi;
     delete rhsmi;
@@ -103,7 +103,7 @@ class DivExpression : public NumExpression
   }
 
   virtual std::string toString() const { return plsexp; }
-  virtual long evaluate() const { return lhsdiv->evaluate() + rhsdiv->evaluate(); }
+  virtual long evaluate() const { return lhsdiv->evaluate() / rhsdiv->evaluate(); }
   virtual ~DivExpression() {
     delete lhsdiv;
     delete rhsdiv;
@@ -130,7 +130,7 @@ class TimesExpression : public NumExpression
   }
 
   virtual std::string toString() const { return plsexp; }
-  virtual long evaluate() const { return lhstim->evaluate() + rhstim->evaluate(); }
+  virtual long evaluate() const { return lhstim->evaluate() * rhstim->evaluate(); }
   virtual ~TimesExpression() {
     delete lhstim;
     delete rhstim;

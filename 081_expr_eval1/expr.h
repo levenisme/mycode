@@ -6,6 +6,7 @@ class Expression
  public:
   virtual std::string toString() const = 0;
   virtual ~Expression() {}
+  virtual long evaluate() const = 0;
 };
 
 class NumExpression : public Expression

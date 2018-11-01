@@ -1,0 +1,337 @@
+==100587== Memcheck, a memory error detector
+==100587== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==100587== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==100587== Command: ./test-lls
+==100587== Parent PID: 100586
+==100587== 
+==100587== Invalid read of size 8
+==100587==    at 0x109758: IntList::operator[](int) (il9.cpp:86)
+==100587==    by 0x1091A5: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82ce8 is 8 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108E5F: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 4
+==100587==    at 0x1091A6: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82d40 is 0 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x10948F: IntList::addBack(int const&) (il9.cpp:30)
+==100587==    by 0x108EE6: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 4
+==100587==    at 0x1099E1: IntList::find(int const&) (il9.cpp:112)
+==100587==    by 0x1091E5: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82ce0 is 0 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108E5F: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 4
+==100587==    at 0x109522: IntList::remove(int const&) (il9.cpp:43)
+==100587==    by 0x109222: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82ce0 is 0 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108E5F: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 8
+==100587==    at 0x10956B: IntList::remove(int const&) (il9.cpp:50)
+==100587==    by 0x109222: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82ce8 is 8 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108E5F: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid write of size 8
+==100587==    at 0x10957D: IntList::remove(int const&) (il9.cpp:51)
+==100587==    by 0x109222: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82c90 is 16 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108DD8: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid free() / delete / delete[] / realloc()
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x1095F2: IntList::remove(int const&) (il9.cpp:64)
+==100587==    by 0x109222: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82ce0 is 0 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108E5F: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 4
+==100587==    at 0x109522: IntList::remove(int const&) (il9.cpp:43)
+==100587==    by 0x10923C: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82c80 is 0 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108DD8: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 8
+==100587==    at 0x10960F: IntList::remove(int const&) (il9.cpp:69)
+==100587==    by 0x10923C: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82c88 is 8 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108DD8: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 8
+==100587==    at 0x1095BB: IntList::remove(int const&) (il9.cpp:58)
+==100587==    by 0x10923C: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82d50 is 16 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x10948F: IntList::addBack(int const&) (il9.cpp:30)
+==100587==    by 0x108EE6: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 8
+==100587==    at 0x1095C7: IntList::remove(int const&) (il9.cpp:59)
+==100587==    by 0x10923C: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82d48 is 8 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x10948F: IntList::addBack(int const&) (il9.cpp:30)
+==100587==    by 0x108EE6: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid write of size 8
+==100587==    at 0x1095D7: IntList::remove(int const&) (il9.cpp:60)
+==100587==    by 0x10923C: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82c88 is 8 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108DD8: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid write of size 8
+==100587==    at 0x1095E3: IntList::remove(int const&) (il9.cpp:61)
+==100587==    by 0x10923C: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82e10 is 16 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x10948F: IntList::addBack(int const&) (il9.cpp:30)
+==100587==    by 0x108FE0: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid free() / delete / delete[] / realloc()
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x1095F2: IntList::remove(int const&) (il9.cpp:64)
+==100587==    by 0x10923C: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82d40 is 0 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x10948F: IntList::addBack(int const&) (il9.cpp:30)
+==100587==    by 0x108EE6: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 4
+==100587==    at 0x109522: IntList::remove(int const&) (il9.cpp:43)
+==100587==    by 0x109256: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82c80 is 0 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108DD8: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 8
+==100587==    at 0x10960F: IntList::remove(int const&) (il9.cpp:69)
+==100587==    by 0x109256: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82c88 is 8 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108DD8: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 8
+==100587==    at 0x1095BB: IntList::remove(int const&) (il9.cpp:58)
+==100587==    by 0x109256: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82e10 is 16 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x10948F: IntList::addBack(int const&) (il9.cpp:30)
+==100587==    by 0x108FE0: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid read of size 8
+==100587==    at 0x1095C7: IntList::remove(int const&) (il9.cpp:59)
+==100587==    by 0x109256: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82e08 is 8 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x10948F: IntList::addBack(int const&) (il9.cpp:30)
+==100587==    by 0x108FE0: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid write of size 8
+==100587==    at 0x1095D7: IntList::remove(int const&) (il9.cpp:60)
+==100587==    by 0x109256: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x5b82c88 is 8 bytes inside a block of size 24 free'd
+==100587==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109B4D: IntList::~IntList() (il9.cpp:140)
+==100587==    by 0x109AF8: IntList::operator=(IntList const&) (il9.cpp:129)
+==100587==    by 0x109164: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Block was alloc'd at
+==100587==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==100587==    by 0x109401: IntList::addFront(int const&) (il9.cpp:18)
+==100587==    by 0x108DD8: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587== 
+==100587== Invalid write of size 8
+==100587==    at 0x1095E3: IntList::remove(int const&) (il9.cpp:61)
+==100587==    by 0x109256: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  Address 0x10 is not stack'd, malloc'd or (recently) free'd
+==100587== 
+==100587== 
+==100587== Process terminating with default action of signal 11 (SIGSEGV)
+==100587==  Access not within mapped region at address 0x10
+==100587==    at 0x1095E3: IntList::remove(int const&) (il9.cpp:61)
+==100587==    by 0x109256: testList() (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==    by 0x10938D: main (in /home/ld190/ece551/089_tests_lls/test-lls)
+==100587==  If you believe this happened as a result of a stack
+==100587==  overflow in your program's main thread (unlikely but
+==100587==  possible), you can try to increase the size of the
+==100587==  main thread stack using the --main-stacksize= flag.
+==100587==  The main thread stack size used in this run was 8388608.
+==100587== 
+==100587== HEAP SUMMARY:
+==100587==     in use at exit: 0 bytes in 0 blocks
+==100587==   total heap usage: 7 allocs, 9 frees, 72,848 bytes allocated
+==100587== 
+==100587== All heap blocks were freed -- no leaks are possible
+==100587== 
+==100587== For counts of detected and suppressed errors, rerun with: -v
+==100587== ERROR SUMMARY: 23 errors from 20 contexts (suppressed: 0 from 0)

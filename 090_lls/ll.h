@@ -133,7 +133,7 @@ class LinkedList
   }
   int find(const T & item) const {
     int i = -1;
-    Node * current = this->head;
+    Node * current = head;
     while (!i) {
       i++;
 

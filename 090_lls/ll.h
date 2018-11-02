@@ -134,13 +134,12 @@ class LinkedList
   int find(const T & item) const {
     int i = -1;
     Node * current = head;
-    while (!i) {
+    while (current != NULL) {
       i++;
-
       if (item == current->data) {
-        current = current->next;
         return i;
       }
+      current = current->next;
     }
     return i;
   }

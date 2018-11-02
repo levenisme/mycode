@@ -135,11 +135,12 @@ class LinkedList
     int i = 0;
     Node * current = head;
     while (current != NULL) {
+      
       if (item == current->data) {
         return i;
       }
-      i++;
       current = current->next;
+      
     }
     return -1;
   }

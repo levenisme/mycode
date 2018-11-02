@@ -1,0 +1,37 @@
+Grading at 11/02/2018:14:54:40.180542
+For commit ID ef893de8c8e4d33a9d7347fab227a72ee9df7906
+-----------------------------------------------
+testcase 1 : Testing with LinkedList<int>
+...compiling...
+In file included from tester.cpp:1:0:
+ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>&) [with T = int]’:
+tester.cpp:94:11:   required from here
+ll.h:179:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with LinkedList<std::string>
+...compiling...
+In file included from tester.cpp:1:0:
+ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>&) [with T = std::__cxx11::basic_string<char>]’:
+tester.cpp:94:11:   required from here
+ll.h:179:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with LinkedList<(a custom class we wrote)>
+...compiling...
+In file included from tester.cpp:1:0:
+ll.h: In instantiation of ‘LinkedList<T>& LinkedList<T>::operator=(LinkedList<T>&) [with T = Tester]’:
+tester.cpp:94:11:   required from here
+ll.h:179:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+
+Overall Grade: F

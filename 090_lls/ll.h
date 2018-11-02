@@ -57,7 +57,7 @@ class LinkedList
       if (item == current->data) {
         find = 1;
 
-        if (this->size == 1) {
+        if (size == 1) {
           delete current;
           head = NULL;
           tail = NULL;
@@ -174,7 +174,7 @@ class LinkedList
       }
       size = 0;
       tail = NULL;
-      for (int i; i < rhs.size; i++) {
+      for (int i = 0; i < rhs.size; i++) {
         addBack(rhs[i]);
       }
     }

@@ -1,28 +1,25 @@
-Grading at 11/02/2018:16:50:33.610174
-For commit ID e3fae0c6b96272d966193aeaa802ead184170cea
+Grading at 11/02/2018:17:32:15.316764
+For commit ID b74b5010861b33163106bd696d4d3b1d02d1352d
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_82_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_82_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind was clean (no errors, no memory leaks)
-Line_82_did_not_match
-Your file did not match the expected ouput
-Testcase failed 
+Your file matched the expected output
+Testcase passed 
 
-Overall Grade: F
+Overall Grade: A

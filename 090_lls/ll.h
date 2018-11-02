@@ -172,6 +172,8 @@ class LinkedList
         delete head;
         head = temp;
       }
+      size = 0;
+      tail = NULL;
       for (int i; i < rhs.getSize(); i++) {
         addBack(rhs[i]);
       }

@@ -176,6 +176,7 @@ class LinkedList
         addBack(rhs[i]);
       }
     }
+    return *this;
   }
   int getSize() const { return this->size; }
 };

@@ -174,7 +174,7 @@ class LinkedList
       }
       size = 0;
       tail = NULL;
-      for (int i; i < rhs.getSize(); i++) {
+      for (int i; i < rhs.size; i++) {
         addBack(rhs[i]);
       }
     }

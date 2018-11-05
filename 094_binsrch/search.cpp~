@@ -1,0 +1,25 @@
+#include <cstdio>
+#include <cstdlib>
+
+#include "function.h"
+int binarySearchForZero(Function<int, int> * f, int low, int high) {
+  int mid = (high + low) / 2;
+  int mid_inv = f->invoke(mid);
+  if (mid_inv < 0) {
+    low = mid;
+  }
+  else if (mid_inv < 0) {
+    high = mid;
+  }
+  else {
+    return mid;
+  }
+  if (high - low <= 1) {
+    return low;
+  }
+  if (mid == high || mid == low) {
+    return mid;
+  }
+
+  return mid;
+}

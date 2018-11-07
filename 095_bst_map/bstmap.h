@@ -1,164 +1,154 @@
-#ifndef _bstMAP_H__
-#define _bstMAP_H__
+#ifndef __BSTMAP_H__
+#define __BSTMAP_H__
+
+#include <cstdio>
 #include <cstdlib>
-#include <exception>
 #include <iostream>
 
 #include "map.h"
+
 template<typename K, typename V>
 class BstMap : public Map<K, V>
 {
+ private:
   class Node
   {
    public:
     K key;
     V value;
-    Node * rnode;
-    Node * lnode;
-    Node() : key(0), value(0), rnode(NULL), lnode(NULL) {}
-    Node(const K & k, const V & v) : key(k), value(v) {}
-    Node(const K & k, const V & v, Node * r, Node * l) : key(k), value(v), rnode(r), lnode(l) {}
+    Node * left;
+    Node * right;
+    Node(const K & k, const V & v) : key(k), value(v), left(NULL), right(NULL) {}
+    Node(const K & k, const V & v, Node * p, Node * n) : key(k), value(v), left(p), right(n) {}
   };
   Node * root;
 
  public:
   BstMap() : root(NULL) {}
-  Node * copyNode(Node * n) {
-    if (n == NULL) {
+
+  Node * copy(const Node * node) {
+    if (node == NULL) {
       return NULL;
     }
+    Node * newRoot = new Node(node->key, node->value);
 
-    Node * newNode = new Node(n->key, n->value, n->rnode, n->lnode);
-    if (n->rnode != NULL) {
-      newNode->rnode = copyNode(n->rnode);
+    if (node->left != NULL) {
+      newRoot->left = copy(node->left);
     }
-    if (n->lnode != NULL) {
-      newNode->lnode = copyNode(n->lnode);
+    if (node->right != NULL) {
+      newRoot->right = copy(node->right);
     }
+    return newRoot;
+  }
+  BstMap(const BstMap<K, V> & rhs) : root(NULL) { root = copy(rhs.root); }
 
-    return newNode;
+  BstMap<K, V> & operator=(const BstMap<K, V> & rhs) {
+    if (this != &rhs) {
+      destroy(root);
+      root = copy(rhs.root);
+    }
+    return *this;
   }
 
-  BstMap(const BstMap<K, V> & rhs) : root(NULL) {
-    if (rhs.root != NULL) {
-      root = copyNode(rhs.root);
-      // root->lnode=copynode(rhs.lnode);
-      // root->rnode=copynode(rhs.rnode);
-    }
-  }
-  void destructor(Node * n) {
-    if (n != NULL) {
-      /*  if (n->lnode == NULL && n->rnode == NULL)
-        delete n;
-	else {*/
-      destructor(n->lnode);
-      destructor(n->rnode);
-      delete n;
-    }
-  }
-  ~BstMap() { destructor(root); }
-  BstMap & operator=(BstMap & rhs) {
-    if (this != rhs) {
-      destructor(this);
-      root = copyNode(rhs.root);
-    }
-  }
   virtual void add(const K & key, const V & value) {
-    Node ** temp = &root;
-    /* if (temp == NULL) {
-      temp = new Node(key, value);
-      }*/
-    while (*temp != NULL)  //key should in the right
-    {
-      if (key == (*temp)->key) {
-        (*temp)->value = value;
+    Node ** adder = &root;
+    Node * element = new Node(key, value, NULL, NULL);
+    while (*adder != NULL) {
+      if (key < (*adder)->key) {
+        adder = &(*adder)->left;
+      }
+      else if (key > (*adder)->key) {
+        adder = &(*adder)->right;
+      }
+
+      else {
+        (*adder)->value = value;
+        delete element;
         return;
       }
-      else if (key > (*temp)->key) {
-        temp = &(*temp)->rnode;
-      }
-      else {
-        temp = &(*temp)->lnode;
-      }
     }
-    *temp = new Node(key, value, NULL, NULL);
+
+    *adder = element;
   }
 
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
-    Node * temp = root;
-
-    while (temp != NULL) {
-      if (key == temp->key) {
-        return temp->value;
+    Node * lookuper = root;
+    while (lookuper != NULL) {
+      if (key < lookuper->key) {
+        lookuper = lookuper->left;
       }
-      else if (key > temp->key) {
-        temp = temp->rnode;
+      else if (key > lookuper->key) {
+        lookuper = lookuper->right;
       }
-      else if (key < temp->key) {
-        temp = temp->lnode;
+      else {
+        return lookuper->value;
       }
     }
-
     throw std::invalid_argument("The key is not found.");
   }
 
+  // we need to get access of the tree's child, so construct a helper function
+  // MAYBE we can learn later how to use iteration to delete a node???
   Node * remove_helper(Node * node, const K & key) {
-    // Node * temp = node;
     if (node == NULL) {
       return node;
     }
     else if (key < node->key) {
-      node->lnode = remove_helper(node->lnode, key);
+      node->left = remove_helper(node->left, key);
     }
     else if (key > node->key) {
-      node->rnode = remove_helper(node->rnode, key);
+      node->right = remove_helper(node->right, key);
     }
     else {
-      //the left one
-      if ((node->lnode == NULL) && (node->rnode == NULL)) {
-        // Node * temp = node;
+      if ((node->right == NULL) && (node->left == NULL)) {
         delete node;
         node = NULL;
       }
-      else if (node->rnode == NULL) {
+      else if (node->left == NULL) {
         Node * temp = node;
-        node = node->lnode;
+        node = node->right;
         delete temp;
       }
-      else if (node->lnode == NULL) {
+      else if (node->right == NULL) {
         Node * temp = node;
-        node = node->rnode;
+        node = node->left;
         delete temp;
       }
       else {
-        // Node * temp = node;
-        Node * temp = node->rnode;
-        while (temp->lnode != NULL) {
-          temp = temp->lnode;
+        Node * temp_r = node->right;
+        // use a iteration to find left most
+        while (temp_r->left != NULL) {
+          temp_r = temp_r->left;
         }
-        node->value = temp->value;
-        node->key = temp->key;
-        node->rnode = remove_helper(node->rnode, temp->key);
+        node->value = temp_r->value;
+        node->key = temp_r->key;
+        node->right = remove_helper(node->right, temp_r->key);
       }
     }
     return node;
   }
+
   virtual void remove(const K & key) { root = remove_helper(root, key); }
+
+  void destroy(Node * n) {
+    if (n != NULL) {
+      destroy(n->left);
+      destroy(n->right);
+      delete n;
+    }
+  }
+
   void inorder() { print_mid_order(root); }
 
   void print_mid_order(Node * n) {
     if (n != NULL) {
-      print_mid_order(n->lnode);
+      print_mid_order(n->left);
       std::cout << n->key << " ";
-      print_mid_order(n->rnode);
+      print_mid_order(n->right);
     }
-    else
-      std::cout << "empty";
   }
+
+  virtual ~BstMap<K, V>() { destroy(root); }
 };
-class myexception : public std::exception
-{
- public:
-  virtual const char * what() const throw() { return "My exception happened"; }
-};
+
 #endif

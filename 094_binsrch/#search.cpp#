@@ -1,0 +1,11 @@
+#include <cstdio>
+#include <cstdlib>
+
+#include "function.h"
+int binarySearchForZero(Function<int, int> * f, int low, int high) {
+  int l = low;
+  int h = high;
+  int x, ans;
+  
+
+}

@@ -13,5 +13,16 @@ class Map
   virtual void remove(const K & key) = 0;
   virtual ~Map<K, V>() {}
 };
-
+//template<typename K, typename V>
+class BstMap : public Map<int, int>
+{
+ private:
+ public:
+  virtual void add(const int & key,const int &value){
+  }
+  virtual const int & lookup(const int & key) const throw(std::invalid_argument) {}
+  int & lookup(const int&key){}
+  virtual void remove(const int & key){}
+  bool numItems()const;
+};
 #endif

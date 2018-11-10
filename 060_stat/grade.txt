@@ -1,4 +1,4 @@
-Grading at 11/10/2018:21:53:31.367339
+Grading at 11/10/2018:22:59:13.193575
 For commit ID b4090681ce205e3d7968cd4ac09292d81ba19afe
 Attempting to compile mystat.c
 Your code seems to compile fine.
@@ -1133,6 +1133,6 @@ Note from the grader:
 You should abstract and name your functions by “functionalities“ instead of which step is it / which line it is printing. You don't have any comment in your code. Variable names need to be more descriptive: temp, s, p, per does not give much information.
 Total points 3.5 / 9 = 38.88 % 
  -> This is 15% of your overall grade on this assignment
-Total: 0.85 * 62.90 + 0.15 * 38.88=59.29
+Total: 0.85 * 74 + 0.15 * 38.88=68.73
 
-Overall Grade: 59.29
+Overall Grade: 68.73

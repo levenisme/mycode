@@ -69,6 +69,7 @@ int main(int argc, char ** argv) {
   std::map<unsigned, BitString> theMap;
   BitString null;
   tree->buildMap(null, theMap);
+  writeCompressedOutput(argv[1], argv[2], theMap);
   delete tree;
 
   //Implement main

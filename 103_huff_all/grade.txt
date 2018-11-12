@@ -1,5 +1,5 @@
-Grading at 11/12/2018:20:27:49.391496
-For commit ID ccc539826aefd4670702cb2ed120e8d726f3758e
+Grading at 11/12/2018:20:49:27.951781
+For commit ID d956d67f864e56a424814d8a337f99eda156a848
 compiling
 g++ -ggdb3 -Wall -Werror -pedantic -std=gnu++98 -o compress  bitstring.o  buildTree.o  compress.o  node.o  readFreq.o
 Make succeed, compress created
@@ -7,79 +7,19 @@ Testcase 1
 -----------------------
   - Valgrind was clean (no errors, no memory leaks)
 Decompressing, and comparing to original...:
-I expected to find a file called 'ours.1.txt' but it did not exist
-(or was not a regular file)
-Here are the files that I can find:
-bitstring.cpp
-bitstring.h
-bitstring.o
-buildTree.cpp
-buildTree.o
-compress
-compress.cpp
-compress.o
-decompress
-Makefile
-node.cpp
-node.h
-node.o
-readFreq.cpp
-readFreq.h
-readFreq.o
-README
-vg.log
-**Testcase failed **
+Your file matched the expected output
+Testcase passed 
 Testcase 2
 -----------------------
   - Valgrind was clean (no errors, no memory leaks)
 Decompressing, and comparing to original...:
-I expected to find a file called 'ours.2.txt' but it did not exist
-(or was not a regular file)
-Here are the files that I can find:
-bitstring.cpp
-bitstring.h
-bitstring.o
-buildTree.cpp
-buildTree.o
-compress
-compress.cpp
-compress.o
-decompress
-Makefile
-node.cpp
-node.h
-node.o
-readFreq.cpp
-readFreq.h
-readFreq.o
-README
-vg.log
-**Testcase failed **
+Your file matched the expected output
+Testcase passed 
 Testcase 3
 -----------------------
   - Valgrind was clean (no errors, no memory leaks)
 Decompressing, and comparing to original...:
-I expected to find a file called 'ours.3.txt' but it did not exist
-(or was not a regular file)
-Here are the files that I can find:
-bitstring.cpp
-bitstring.h
-bitstring.o
-buildTree.cpp
-buildTree.o
-compress
-compress.cpp
-compress.o
-decompress
-Makefile
-node.cpp
-node.h
-node.o
-readFreq.cpp
-readFreq.h
-readFreq.o
-README
-vg.log
-**Testcase failed **
+Your file matched the expected output
+Testcase passed 
 
-Overall Grade: F
+Overall Grade: A

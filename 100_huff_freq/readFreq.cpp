@@ -30,12 +30,13 @@ uint64_t * readFrequencies(const char * fname) {
     perror("fail to open");
     exit(EXIT_FAILURE);
   }
-  uint64_t * arr = new uint64_t[257];
+  uint64_t * arr = new uint64_t[257]();
   int in = 0;
   while ((in = inFile.get()) != EOF) {
     arr[in]++;
   }
   arr[256] = 1;
+  inFile.close();
   return arr;
 
   //WRITE ME!

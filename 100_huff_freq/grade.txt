@@ -1,0 +1,147 @@
+Grading at 11/12/2018:03:49:15.816459
+For commit ID 740c07615b15d1b9bd7921401b284270e265cc4d
+compiling
+g++ -ggdb3 -Wall -Werror -pedantic -o testFreq testFreq.cpp readFreq.cpp
+Make succeed, testFreq created
+Testcase 1
+-----------------------
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+==85395== Memcheck, a memory error detector
+==85395== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==85395== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==85395== Command: ./testFreq /etc/issue
+==85395== Parent PID: 85394
+==85395== 
+==85395== Conditional jump or move depends on uninitialised value(s)
+==85395==    at 0x10907E: main (testFreq.cpp:13)
+==85395== 
+==85395== Use of uninitialised value of size 8
+==85395==    at 0x4F471EE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85395==    by 0x4F47C78: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85395==    by 0x4F53ED8: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85395==    by 0x1090C6: main (testFreq.cpp:17)
+==85395== 
+==85395== Conditional jump or move depends on uninitialised value(s)
+==85395==    at 0x4F471FB: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85395==    by 0x4F47C78: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85395==    by 0x4F53ED8: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85395==    by 0x1090C6: main (testFreq.cpp:17)
+==85395== 
+==85395== 
+==85395== HEAP SUMMARY:
+==85395==     in use at exit: 0 bytes in 0 blocks
+==85395==   total heap usage: 5 allocs, 5 frees, 87,600 bytes allocated
+==85395== 
+==85395== All heap blocks were freed -- no leaks are possible
+==85395== 
+==85395== For counts of detected and suppressed errors, rerun with: -v
+==85395== Use --track-origins=yes to see where uninitialised values come from
+==85395== ERROR SUMMARY: 290 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 2
+-----------------------
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+==85425== Memcheck, a memory error detector
+==85425== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==85425== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==85425== Command: ./testFreq /etc/services
+==85425== Parent PID: 85424
+==85425== 
+==85425== Conditional jump or move depends on uninitialised value(s)
+==85425==    at 0x10907E: main (testFreq.cpp:13)
+==85425== 
+==85425== Use of uninitialised value of size 8
+==85425==    at 0x4F471EE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85425==    by 0x4F47C78: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85425==    by 0x4F53ED8: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85425==    by 0x1090C6: main (testFreq.cpp:17)
+==85425== 
+==85425== Conditional jump or move depends on uninitialised value(s)
+==85425==    at 0x4F471FB: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85425==    by 0x4F47C78: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85425==    by 0x4F53ED8: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85425==    by 0x1090C6: main (testFreq.cpp:17)
+==85425== 
+==85425== 
+==85425== HEAP SUMMARY:
+==85425==     in use at exit: 0 bytes in 0 blocks
+==85425==   total heap usage: 5 allocs, 5 frees, 87,600 bytes allocated
+==85425== 
+==85425== All heap blocks were freed -- no leaks are possible
+==85425== 
+==85425== For counts of detected and suppressed errors, rerun with: -v
+==85425== Use --track-origins=yes to see where uninitialised values come from
+==85425== ERROR SUMMARY: 652 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 3
+-----------------------
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+==85441== Memcheck, a memory error detector
+==85441== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==85441== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==85441== Command: ./testFreq /usr/share/dict/words
+==85441== Parent PID: 85440
+==85441== 
+==85441== Conditional jump or move depends on uninitialised value(s)
+==85441==    at 0x10907E: main (testFreq.cpp:13)
+==85441== 
+==85441== Use of uninitialised value of size 8
+==85441==    at 0x4F471EE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85441==    by 0x4F47C78: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85441==    by 0x4F53ED8: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85441==    by 0x1090C6: main (testFreq.cpp:17)
+==85441== 
+==85441== Conditional jump or move depends on uninitialised value(s)
+==85441==    at 0x4F471FB: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85441==    by 0x4F47C78: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85441==    by 0x4F53ED8: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85441==    by 0x1090C6: main (testFreq.cpp:17)
+==85441== 
+==85441== 
+==85441== HEAP SUMMARY:
+==85441==     in use at exit: 0 bytes in 0 blocks
+==85441==   total heap usage: 5 allocs, 5 frees, 87,600 bytes allocated
+==85441== 
+==85441== All heap blocks were freed -- no leaks are possible
+==85441== 
+==85441== For counts of detected and suppressed errors, rerun with: -v
+==85441== Use --track-origins=yes to see where uninitialised values come from
+==85441== ERROR SUMMARY: 740 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 4
+-----------------------
+  - Valgrind reported errors
+Valgrind reported errors (test failed).
+==85467== Memcheck, a memory error detector
+==85467== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==85467== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==85467== Command: ./testFreq /usr/share/dict/cracklib-small
+==85467== Parent PID: 85466
+==85467== 
+==85467== Conditional jump or move depends on uninitialised value(s)
+==85467==    at 0x10907E: main (testFreq.cpp:13)
+==85467== 
+==85467== Use of uninitialised value of size 8
+==85467==    at 0x4F471EE: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85467==    by 0x4F47C78: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85467==    by 0x4F53ED8: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85467==    by 0x1090C6: main (testFreq.cpp:17)
+==85467== 
+==85467== Conditional jump or move depends on uninitialised value(s)
+==85467==    at 0x4F471FB: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85467==    by 0x4F47C78: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85467==    by 0x4F53ED8: std::ostream& std::ostream::_M_insert<unsigned long>(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==85467==    by 0x1090C6: main (testFreq.cpp:17)
+==85467== 
+==85467== 
+==85467== HEAP SUMMARY:
+==85467==     in use at exit: 0 bytes in 0 blocks
+==85467==   total heap usage: 5 allocs, 5 frees, 87,600 bytes allocated
+==85467== 
+==85467== All heap blocks were freed -- no leaks are possible
+==85467== 
+==85467== For counts of detected and suppressed errors, rerun with: -v
+==85467== Use --track-origins=yes to see where uninitialised values come from
+==85467== ERROR SUMMARY: 532 errors from 3 contexts (suppressed: 0 from 0)
+
+Overall Grade: F

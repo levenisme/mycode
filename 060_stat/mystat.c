@@ -133,38 +133,10 @@ char * step2(struct stat sb, int * p) {
     s[9] = '-';
   s[10] = '\0';
   return s;
-  //  printf("Access: (%04o/%s)\n", per, s);
-  //free(s);
 }
 void step3(struct stat sb, int p, char * str) {
   struct passwd * pwd;
-  /* struct passwd * result;
-  char * buf;
-  size_t bufsize;
-  int s;
 
-  bufsize = sysconf(_SC_GETPW_R_SIZE_MAX);
-  size_t n = -1;
-  if (bufsize == n)  
-    bufsize = 16384; 
-
-  buf = malloc(bufsize);
-  if (buf == NULL) {
-    perror("malloc");
-    exit(EXIT_FAILURE);
-  }
-
-  s = getpwnam_r(filename, &pwd, buf, bufsize, &result);
-  if (result == NULL) {
-    if (s == 0)
-      printf("Not found\n");
-    else {
-      // errno = s;
-      perror("getpwnam_r");
-    }
-    exit(EXIT_FAILURE);
-  }
-  */
   pwd = getpwuid(sb.st_uid);
   struct group * grp;
   grp = getgrgid(sb.st_gid);
@@ -175,7 +147,6 @@ void step3(struct stat sb, int p, char * str) {
          pwd->pw_name,
          sb.st_gid,
          grp->gr_name);
-  // printf("Name: %s; UID: %ld\n", pwd.pw_gecos, (long)pwd.pw_uid);
 }
 char * time2str(const time_t * when, long ns) {
   char * ans = malloc(128 * sizeof(*ans));
@@ -228,5 +199,3 @@ int main(int argc, char ** argv) {
   }
   return EXIT_SUCCESS;
 }
-
-//This function is for Step 4

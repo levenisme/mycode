@@ -1,9 +1,4 @@
-CCFLAGS=--std=gnu++98 -ggdb3 -pedantic -Wall -Werror -ggdb3
-myShell: myShell.o 
-	g++ -o myShell $(CCFLAGS) myShell.o 
-
-%.o: %.cpp myShell.h
-	g++ -c $(CCFLAGS) $<
-
+myShell: main.cpp myShell.cpp myShell.h
+	g++ -std=gnu++11 -Wall -Werror -pedantic -o myShell main.cpp myShell.cpp
 clean:
-	rm -f *.o  *~ intArrayTest
+	rm myShell *~

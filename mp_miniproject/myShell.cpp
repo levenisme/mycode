@@ -1,3 +1,5 @@
+#include "myShell.h"
+
 #include <dirent.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,8 +13,15 @@
 #include <sstream>
 #include <string>
 #include <vector>
-void execution(std::vector<char *> & input_line);
-void executeCd(std::vector<char *> & cdArg) {
+myShell::myShell() : path(NULL), dirName(NULL), charVec(0, nullptr) {}
+/*void myShell::free(std::vector<char *> & input) {
+  for (std::vector<char *>::iterator it = input.begin(); it != input.end(); it++) {
+    delete *it;
+    *it = NULL;
+  }
+  input.clear();
+  }*/
+void myShell::executeCd(std::vector<char *> & cdArg) {
   /*  for (size_t i = 0; i < cdArg.size(); i++) {
     std::cout << i << " :" << cdArg[i] << "\n";
     std::cout << "size: " << cdArg.size() << std::endl;
@@ -28,7 +37,7 @@ void executeCd(std::vector<char *> & cdArg) {
 }
 //step2.2 if input has backslash
 
-std::vector<std::string> checkParse(std::vector<std::string> & parse) {
+std::vector<std::string> myShell::checkParse(std::vector<std::string> & parse) {
   std::vector<std::string> checkParse;
   std::string temp;
 
@@ -59,11 +68,12 @@ std::vector<std::string> checkParse(std::vector<std::string> & parse) {
       checkParse.push_back(temp2);
     }
   }
+  parse.clear();
   return checkParse;
 }
 //step2.1
 //parse the path first, then find the right one and execute
-std::vector<std::string> parsePath(char * path) {
+std::vector<std::string> myShell::parsePath(char * path) {
   std::istringstream temp(path);
   std::string pathtemp;
   std::vector<std::string> parse;
@@ -72,10 +82,10 @@ std::vector<std::string> parsePath(char * path) {
   }
   return parse;
 }
-std::string executePath(std::vector<std::string> parseP, std::string input_line) {
+std::string myShell::executePath(std::vector<std::string> parseP, std::string input_line) {
   DIR * curr_dir;
   struct dirent * ent;
-  std::string path;
+  std::string path;  //maybe use in the space
   //  std::cout << "input" << input_line << std::endl;
   std::string inputArg;
   size_t n = input_line.find(" ");
@@ -112,13 +122,14 @@ std::string executePath(std::vector<std::string> parseP, std::string input_line)
     ++it;
   }
   // std::cout << "if enter false" << input_line << "wrong" << path << std::endl;
+  parseP.clear();
   return input_line;  //cannot find path
 }
 //colon-delimited parse
-std::string searchPath(std::string input_line) {
+std::string myShell::searchPath(std::string input_line) {
   const char * pathSig = "PATH";
-  char * path = NULL;
-  path = getenv(pathSig);
+  //char * path = NULL;
+  path = getenv(pathSig);  //use the var
   std::vector<std::string> parseP = parsePath(path);
   /* for (size_t i = 0; i < parseP.size(); i++) {
     std::cout << parseP[i] << "\n";
@@ -128,7 +139,7 @@ std::string searchPath(std::string input_line) {
   return search;
 }
 
-void execution(std::vector<char *> & input_line) {
+void myShell::execution(std::vector<char *> & input_line) {
   /*  //if type exit,maybe wrong place
   if (strcmp(input_line[0], "exit") == 0) {
     exit(EXIT_SUCCESS);
@@ -148,6 +159,7 @@ void execution(std::vector<char *> & input_line) {
     if (execve(input_line[0], &input_line[0], envi) == -1) {
       std::cout << "Command " << input_line[0] << " not found" << std::endl;
     }
+    input_line.clear();
   }
   else {
     waitpid(childPid, &status, WUNTRACED | WCONTINUED);
@@ -160,6 +172,7 @@ void execution(std::vector<char *> & input_line) {
     }
   }
 }
+/*
 int main(void) {
   while (1) {
     char * path = get_current_dir_name();
@@ -217,3 +230,4 @@ int main(void) {
 
   return EXIT_SUCCESS;
 }
+*/

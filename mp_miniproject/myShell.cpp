@@ -9,6 +9,7 @@
 #include <unistd.h>
 
 #include <algorithm>
+#include <cstdlib>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -213,14 +214,26 @@ void myShell::executeVal(std::string & input_line, size_t & findEqual) {
 
   // std::cout << "key: " << key << std::endl;
   // std::cout << "value: " << value << std::endl;
+  std::map<std::pair<std::string, std::string>, bool>::const_iterator it;
+  for (it = inputVal.begin(); it != inputVal.end(); ++it) {
+    if (key.compare(it->first.first) == 0) {
+      std::pair<std::string, std::string> tempP =
+          std::make_pair(key, value);  //if has this value, replace
+      inputVal.erase(it);
+      inputVal[tempP] = 0;
+      return;
+    }
+  }
   std::pair<std::string, std::string> temp = std::make_pair(key, value);
   inputVal[temp] = 0;
   // std::cout << "map size: " << inputVal.size() << std::endl;
   // inputVal["abc"] = "fdadfa";  //first
-  std::map<std::pair<std::string, std::string>, bool>::const_iterator it;
+
+  //testx
   for (it = inputVal.begin(); it != inputVal.end(); ++it) {
     std::cout << it->first.first << "=" << it->second << std::endl;
   }
+  return;
 }
 
 void myShell::outputValue(std::map<std::pair<std::string, std::string>, bool> & inputVal,
@@ -298,10 +311,22 @@ void myShell::executeSet(std::string & left,
   size_t findSecondSpace = temp.find(' ', 0);
   size_t tempSize = temp.size();
   temp = temp.substr(findSecondSpace + 1, tempSize);
+  std::map<std::pair<std::string, std::string>, bool>::const_iterator it;
+  for (it = inputVal.begin(); it != inputVal.end(); ++it) {
+    if (left.compare(it->first.first) == 0) {
+      std::pair<std::string, std::string> tempP =
+          std::make_pair(left, temp);  //if has this value, replace
+      inputVal.erase(it);
+      inputVal[tempP] = 1;
+      return;
+    }
+  }
+  //if has a new value
   std::pair<std::string, std::string> tempP = std::make_pair(left, temp);
   inputVal[tempP] = 1;
   std::cout << "parseTemp[1]:" << left << std::endl;
   std::cout << "right: " << temp << std::endl;
+  return;
 }
 void myShell::executeExport(std::map<std::pair<std::string, std::string>, bool> & inputVal,
                             std::vector<std::string> & input) {
@@ -318,4 +343,31 @@ void myShell::executeExport(std::map<std::pair<std::string, std::string>, bool> 
       return;
     }
   }
+}
+void myShell::excuteInc(std::map<std::pair<std::string, std::string>, bool> & inputVal,
+                        std::string & input) {
+  std::map<std::pair<std::string, std::string>, bool>::const_iterator it;
+  for (it = inputVal.begin(); it != inputVal.end(); ++it) {
+    if (input.compare(it->first.first) == 0) {
+      std::istringstream stream(it->first.second);
+      int num;
+      stream >> num;
+      std::cout << "convert " << it->first.second << "to num: " << num << std::endl;
+      num++;
+      std::cout << "convert " << it->first.second << "to num: " << num << std::endl;
+      std::string numConvert = std::to_string(num);
+      //  stream >> numConvert;
+      std::cout << "convert " << it->first.second << "to string: " << numConvert << std::endl;
+
+      std::pair<std::string, std::string> tempP = std::make_pair(input, numConvert);
+      bool store = it->second;
+      inputVal.erase(it);
+      inputVal[tempP] = store;
+      return;
+    }
+  }
+  std::string numConvert = "1";
+  std::pair<std::string, std::string> tempP = std::make_pair(input, numConvert);
+  inputVal[tempP] = 0;
+  return;
 }

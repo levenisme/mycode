@@ -51,6 +51,8 @@ class myShell
                   std::map<std::pair<std::string, std::string>, bool> & inputVal);
   void executeExport(std::map<std::pair<std::string, std::string>, bool> & inputVal,
                      std::vector<std::string> & input);
+  void excuteInc(std::map<std::pair<std::string, std::string>, bool> & inputVal,
+                 std::string & input);
 };
 
 #endif

@@ -27,7 +27,11 @@ int main(void) {
     size_t findEqual = myShell.input_line.find('=', 0);
     //    std::cout << "find=:" << findEqual << std::endl;
     //std::cout << "inputline: " << myShell.input_line << std::endl;
-    if (findEqual != std::string::npos) {  //step3.3 provide access to variables
+    if (myShell.input_line.size() == 0) {
+      continue;
+    }
+
+    else if (findEqual != std::string::npos) {  //step3.3 provide access to variables
       myShell.executeVal(myShell.input_line, findEqual);
       /* std::string key = myShell.input_line.substr(0, findEqual);
       std::string value = myShell.input_line.substr(findEqual + 1, myShell.input_line.size() - 1);
@@ -85,6 +89,10 @@ int main(void) {
                   (parseTemp[0].compare("/bin/export") == 0)) &&
                  (parseTemp.size() == 2)) {
           myShell.executeExport(myShell.inputVal, parseTemp);
+        }
+        else if (((parseTemp[0].compare("inc") == 0) || (parseTemp[0].compare("/bin/inc") == 0)) &&
+                 (parseTemp.size() == 2)) {
+          myShell.excuteInc(myShell.inputVal, parseTemp[1]);
         }
         else {
           //myShell.charVec(parseTemp.size(), nullptr);

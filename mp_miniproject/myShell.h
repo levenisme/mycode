@@ -33,7 +33,7 @@ class myShell
   //get the path and search
   std::string searchPath(std::string input_line);
   //execute the input
-  void execution(std::vector<char *> & input_line);
+  void execution(std::vector<char *> & input_line, char * envp[]);
   void executeVal(std::string & input_line, size_t & findEqual);
   void outputValue(std::map<std::pair<std::string, std::string>, bool> & inputVal,
                    std::string & input);

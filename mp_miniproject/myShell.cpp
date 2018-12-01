@@ -14,7 +14,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-myShell::myShell() : path(NULL), dirName(NULL), charVec(0, nullptr) {}
+myShell::myShell() : path(NULL), dirName(NULL) {}
 /*void myShell::free(std::vector<char *> & input) {
   for (std::vector<char *>::iterator it = input.begin(); it != input.end(); it++) {
     delete *it;
@@ -43,13 +43,15 @@ std::vector<std::string> myShell::checkParse(std::vector<std::string> & parse) {
   std::string temp;
 
   for (size_t i = 0; i < parse.size(); i++) {
-    if (parse[i].back() == '\\') {
+    int end = parse[i].size();
+    if (parse[i][end - 1] == '\\') {
       temp = parse[i];
       //      std::cout << "have a \\temp value:" << temp << "i: " << i << std::endl;
       //  temp.erase(std::find(temp.begin(), temp.end(), '\\'));
       temp.push_back(' ');
       temp.append(parse[++i]);
-      if (temp.back() == '\\') {
+      int tempEnd = temp.size();
+      if (temp[tempEnd - 1] == '\\') {
         temp.push_back(' ');
         temp.append(parse[++i]);
         temp.erase(std::find(temp.begin(), temp.end(), '\\'));
@@ -145,13 +147,13 @@ std::string myShell::searchPath(std::string input_line) {
   return search;
 }
 
-void myShell::execution(std::vector<char *> & input_line) {
+void myShell::execution(std::vector<char *> & input_line, char * env[]) {
   /*  //if type exit,maybe wrong place
   if (strcmp(input_line[0], "exit") == 0) {
     exit(EXIT_SUCCESS);
     }*/
   pid_t childPid = fork();
-  char * envi[] = {NULL};
+  // char * envi[] = {NULL};
   int status;
   if (childPid == -1) {
     perror("cannot execute");
@@ -162,7 +164,8 @@ void myShell::execution(std::vector<char *> & input_line) {
       std::cout << input_line[i] << "\n";
     }  //check if I have right vec
     */
-    if (execve(input_line[0], &input_line[0], envi) == -1) {
+    setenv("new env sdaf", "dfaaadf", 1);
+    if (execve(input_line[0], &input_line[0], env) == -1) {
       std::cout << "Command " << input_line[0] << " not found" << std::endl;
     }
     input_line.clear();
@@ -338,8 +341,9 @@ void myShell::executeExport(std::map<std::pair<std::string, std::string>, bool> 
       }
       std::string env = it->first.first + "=" + it->first.second;
       std::cout << "String pair: " << env << std::endl;
-      putenv((char *)env.c_str());
+      setenv(it->first.first.c_str(), it->first.second.c_str(), 1);
       std::cout << "env: " << getenv(it->first.first.c_str()) << std::endl;
+      // env=realloc(env, sizeof(env));
       return;
     }
   }
@@ -360,14 +364,14 @@ void myShell::excuteInc(std::map<std::pair<std::string, std::string>, bool> & in
       std::cout << "convert " << it->first.second << "to string: " << numConvert << std::endl;
 
       std::pair<std::string, std::string> tempP = std::make_pair(input, numConvert);
-      bool store = it->second;
+      // bool store = it->second;
       inputVal.erase(it);
-      inputVal[tempP] = store;
+      inputVal[tempP] = 1;
       return;
     }
   }
   std::string numConvert = "1";
   std::pair<std::string, std::string> tempP = std::make_pair(input, numConvert);
-  inputVal[tempP] = 0;
+  inputVal[tempP] = 1;
   return;
 }

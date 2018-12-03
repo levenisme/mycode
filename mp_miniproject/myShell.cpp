@@ -1,6 +1,7 @@
 #include "myShell.h"
 
 #include <dirent.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,6 +11,7 @@
 
 #include <algorithm>
 #include <cstdlib>
+#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -164,11 +166,23 @@ void myShell::execution(std::vector<char *> & input_line, char * env[]) {
       std::cout << input_line[i] << "\n";
     }  //check if I have right vec
     */
-    setenv("new env sdaf", "dfaaadf", 1);
-    if (execve(input_line[0], &input_line[0], env) == -1) {
-      std::cout << "Command " << input_line[0] << " not found" << std::endl;
+    bool rediFg = 0;
+    if (input_line[0][0] == '>') {
+      printf("check success");
+      rediFg = 1;
+      int fd = open(input_line[1], O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
+      printf("check if open success");
+      std::cout << "inputline[1]: " << input_line[1] << std::endl;
+      dup2(fd, 1);
+      execve(input_line[0], &input_line[0], env);
+      close(fd);
     }
-    input_line.clear();
+    if (rediFg == 0) {
+      if (execve(input_line[0], &input_line[0], env) == -1) {
+        std::cout << "Command " << input_line[0] << " not found" << std::endl;
+      }
+      input_line.clear();
+    }
   }
   else {
     waitpid(childPid, &status, WUNTRACED | WCONTINUED);

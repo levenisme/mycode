@@ -3,6 +3,7 @@ exit and ^d           exit correctly
               +return
 only enter          shell continue
 
+spaces and enter       shell continue
 2.one argument: 
 ls 
 myShell:/home/ld190/ece551/mp_miniproject $ls

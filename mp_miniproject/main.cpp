@@ -16,159 +16,104 @@
 int main(void) {
   myShell myShell;
   while (1) {
-    /*    int i = 0;
-    while (envp[i] != NULL) {
-      printf("%s\n", envp[i]);
-      i++;
-      };*/
-
-    myShell.dirName = get_current_dir_name();
-    std::cout << "myShell:" << myShell.dirName << " $";
-    free(myShell.dirName);
+    myShell.dirName = get_current_dir_name();            //get current dir
+    std::cout << "myShell:" << myShell.dirName << " $";  //outout current dir
+    free(myShell.dirName);  //get_current_dir_name will create new space, free it in this step
     myShell.dirName = NULL;
-    // std::string input_line;  //h
-    getline(std::cin, myShell.input_line);
-    //    std::cout << "inputline: " << myShell.input_line << std::endl;
-    myShell.input_line = myShell.searchPath(myShell.input_line);  //verify if need to add path
-    size_t findEqual = myShell.input_line.find('=', 0);
-    //    std::cout << "find=:" << findEqual << std::endl;
-    //std::cout << "inputline: " << myShell.input_line << std::endl;
-    if (myShell.input_line.size() == 0) {
+    if (std::cin.eof()) {  //if enter ^d, exit
+
+      break;
+    }
+    getline(std::cin, myShell.input_line);  //get the input line
+    if (myShell.input_line.size() == 0) {   //if just type enter
       continue;
     }
-    else if (std::cin.eof()) {
-      //        exit(EXIT_SUCCESS);
+
+    if (myShell.input_line == "exit") {
       break;
-    }
-    else if (myShell.input_line == "exit") {
-      myShell.charVec.clear();
-      break;
-      // exit(EXIT_SUCCESS);
     }
 
-    else if (findEqual != std::string::npos) {  //step3.3 provide access to variables
-      myShell.executeVal(myShell.input_line, findEqual);
-      /* std::string key = myShell.input_line.substr(0, findEqual);
-      std::string value = myShell.input_line.substr(findEqual + 1, myShell.input_line.size() - 1);
-      std::cout << "key: " << key << std::endl;
-      std::cout << "value: " << value << std::endl;*/
-      // myShell.inputVal[key] = value;
+    size_t findCorrectStart = myShell.input_line.find_first_not_of(' ', 0);
+    if (findCorrectStart == std::string::npos) {  //if type spaces and enter
+      continue;
     }
-    /*    else if (std::cin.eof()) {
-      //        exit(EXIT_SUCCESS);
-      break;
-    }
-    else if (myShell.input_line == "exit") {
-      myShell.charVec.clear();
-      break;
-      // exit(EXIT_SUCCESS);
+    //remove the spaces before command to get right input
+    myShell.input_line = myShell.input_line.substr(findCorrectStart, myShell.input_line.size());
+    /*    if (findCorrectStart == std::string::npos) {  //if just type enter
+      continue;
       }*/
 
-    //std::string getCd = getenv("HOME");//??????????remove?
-    //  std::cout << "cdpath" << getCd << std::endl;
+    myShell.input_line = myShell.searchPath(myShell.input_line);  //verify if need to add path
+    //    if ((myShell.input_line.compare("notFind")) == 0) {
+    // continue;
+    // }
+    size_t findEqual = myShell.input_line.find('=', 0);  //if it has '=', it should access the val
+    if (myShell.input_line.size() == 0) {                //if the input is enter
+      continue;
+    }
+    else if (findEqual != std::string::npos) {  //step3.3 provide access to variables
+      myShell.executeVal(myShell.input_line, findEqual);
+    }
     else {
       std::vector<std::string> parseTemp;
 
+      parseTemp = myShell.checkParse(parseTemp);
       std::istringstream stringIn(myShell.input_line);
 
       std::string word;
-      size_t findSlash = myShell.input_line.find('\\', 0);
+      size_t findSlash = myShell.input_line.find('\\', 0);  //if find a seperator
       if (findSlash == std::string::npos) {
-        //          std::cout << "not findslash" << std::endl;
-        while (stringIn >> word) {  //separate each
+        while (stringIn >> word) {  //separate each in a normal way
           parseTemp.push_back(word);
         }
       }
 
       else {
-        while (std::getline(stringIn, word, ' ')) {
+        while (std::getline(stringIn, word, ' ')) {  //if find a seperator, ./myProgram a\  b c \ d
           parseTemp.push_back(word);
         }
       }
-      parseTemp = myShell.checkParse(parseTemp);
-      /* for (size_t i = 0; i < parseTemp.size(); i++) {
-          std::cout << "checkparse" << i << ": " << parseTemp[i] << std::endl;
-	  }*/
-      //        std::cout << "parseTemp[0]:" << parseTemp[0] << std::endl;
-      // std::cout << "parseTemp[0].compare():" << parseTemp[0].compare("echo") << std::endl;
+      parseTemp = myShell.checkParse(parseTemp);  //ignore the slash in the input
       if ((parseTemp[0].compare("set") == 0 || parseTemp[0].compare("/bin/set") == 0) &&
           parseTemp.size() >= 3) {
-        //          size_t positionS = (parseTemp[0]).size() + (parseTemp[1]).size();
-        // myShell.executeVal(parseTemp[1].append(parseTemp[2]), positionS);
-        myShell.executeSet(parseTemp[1], myShell.input_line, myShell.inputVal);
+        myShell.executeSet(
+            parseTemp[1], myShell.input_line, myShell.inputVal);  //execute the set command
       }
       else if ((parseTemp[0].compare("echo") == 0) || (parseTemp[0].compare("/bin/echo") == 0)) {
-        myShell.parseValue(myShell.inputVal, parseTemp);
+        myShell.parseValue(myShell.inputVal, parseTemp);  //execute echo command
       }
       else if (((parseTemp[0].compare("export") == 0) ||
                 (parseTemp[0].compare("/bin/export") == 0)) &&
                (parseTemp.size() == 2)) {
-        myShell.executeExport(myShell.inputVal, parseTemp);
-        std::cout << "check my code" << std::endl;
-        /* int i = 0;
-        while (envp[i] != NULL) {
-          printf("%s\n", envp[i]);
-          i++;
-	  }*/
+        myShell.executeExport(myShell.inputVal, parseTemp);  //execute export command
       }
       else if (((parseTemp[0].compare("inc") == 0) || (parseTemp[0].compare("/bin/inc") == 0)) &&
                (parseTemp.size() == 2)) {
-        myShell.excuteInc(myShell.inputVal, parseTemp[1]);
+        myShell.excuteInc(myShell.inputVal, parseTemp[1]);  //execute inc command
       }
-      else {
-        //myShell.charVec(parseTemp.size(), nullptr);
-        std::cout << "checkcharVecSize: " << myShell.charVec.size() << std::endl;
+      else {                                             //
         for (size_t i = 0; i < parseTemp.size(); i++) {  //convert string into char*
-          //  std::cout << "checkparse" << i << ": " << parseTemp[i].c_str() << std::endl;
           myShell.charVec.push_back((char *)parseTemp[i].c_str());
-          // std::cout << "charVecPush" << i << ": " << myShell.charVec[i] << std::endl;
         }
-        for (size_t i = 0; i < parseTemp.size(); i++) {
-          std::cout << "checkcharVec" << i << ": " << myShell.charVec[i] << std::endl;
-        }
-        // charVec.push_back(NULL);
-        //check if press enter
         if (myShell.charVec.size() == 0) {
-          //      std::cout << "this is just return" << std::endl;
           continue;
         }
-        // std::cout << "hello" << std::endl;
         if (strcmp(myShell.charVec[0], "cd") == 0) {
-          //      std::cout << "this is cd command" << std::endl;
-          myShell.executeCd(myShell.charVec);  //execute cd
+          myShell.executeCd(myShell.charVec);  //execute cd command
         }
 
         else {
-          std::cout << "hello aaaaaaaaaaaaaaaaaaaaaaaaaaa" << std::endl;
           myShell.charVec.push_back(NULL);
-          /*          int i = 0;
-          while (envp[i] != NULL) {
-            printf("%s\n", envp[i]);
-            i++;
-	    }*/
           extern char ** environ;
-          myShell.execution(myShell.charVec, environ);
-          // myShell.execution(myShell.charVec, envp);  //execute normal commands
+          myShell.execution(myShell.input_line, myShell.charVec, environ);  //execute normal command
         }
         parseTemp.clear();
-
-        /*    for (std::vector<char *>::iterator it = myShell.charVec.begin(); it != myShell.charVec.end();
-         it++) {
-      delete *it;
-      *it = NULL;
-      }*/
-
-        //          for (size_t i = 0; i < myShell.charVec.size(); i++) {
-        // myShell.charVec.pop_back();
-        //}
-        std::vector<char *>().swap(myShell.charVec);
+        std::vector<char *>().swap(myShell.charVec);  //free memory
         myShell.charVec.clear();
       }
     }
   }
-  // std::vector<char *>().swap(myShell.charVec);
-  delete[] myShell.path;
-  myShell.path = NULL;
-
+  //  delete[] myShell.path;
+  // myShell.path = NULL;
   return EXIT_SUCCESS;
 }

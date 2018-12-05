@@ -32,25 +32,24 @@ class myShell
   std::string executePath(std::vector<std::string> parseP, std::string input_line);
   //get the path and search
   std::string searchPath(std::string input_line);
-  //execute the input
-  void execution(std::vector<char *> & input_line, char * envp[]);
+  //execute normal commands
+  void execution(std::string & input, std::vector<char *> & input_line, char * envp[]);
+  //execute input with value
   void executeVal(std::string & input_line, size_t & findEqual);
+  //print the required value to the shell
   void outputValue(std::map<std::pair<std::string, std::string>, bool> & inputVal,
                    std::string & input);
-  // public:
-  myShell();
-  // void free(std::vector<char *> & input);  //free the mem
-  // std::string getInput() { return input_line; }
-  // char * getPath() { return path; }
-  //char *getDir(){return dirName;}
-  //  charVec(size_t size,nullptr){}
+  //get the right input format if have value
   void parseValue(std::map<std::pair<std::string, std::string>, bool> & inputVal,
                   std::vector<std::string> & input);
+  //execute set command
   void executeSet(std::string & left,
                   std::string & input_line,
                   std::map<std::pair<std::string, std::string>, bool> & inputVal);
+  //execute the export command
   void executeExport(std::map<std::pair<std::string, std::string>, bool> & inputVal,
                      std::vector<std::string> & input);
+  //execute the inc command
   void excuteInc(std::map<std::pair<std::string, std::string>, bool> & inputVal,
                  std::string & input);
 };

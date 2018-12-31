@@ -1,0 +1,3 @@
+Grade: 89.9
+Comments:
+I cannot use ^+D to exit sometimes. "/bin/echo hello" doesn't work. Failed escape white space test case "\\        a      b" . You seem not use the ECE551PATH. And change the PATH variable needs an extra export to run the command under that directory. Your ">"creates a new file but doesn't write into it.
